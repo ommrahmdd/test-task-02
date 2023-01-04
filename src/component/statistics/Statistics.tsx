@@ -42,7 +42,7 @@ export default function Statistics({
   if (type === "miles")
     //HANDLE: Type == miles
     return (
-      <div className="bg-white rounded-lg py-3 px-8 space-y-4">
+      <div className="bg-white rounded-lg py-5 px-8 space-y-5">
         {/* Title */}
         <p className="text-lg md:text-xl">
           <span className="font-semibold">{title}</span> Statistics
@@ -67,9 +67,9 @@ export default function Statistics({
           <p>256 Miles</p>
         </div>
         <div className="">
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data} width={150} height={50}>
-              <XAxis dataKey="name" />
+              <XAxis dataKey="name" axisLine={false} />
               <Tooltip />
               <Bar dataKey="pv" fill="#2884FF" />
             </BarChart>
@@ -80,7 +80,7 @@ export default function Statistics({
   // HANDLE: type === car
   else
     return (
-      <div className="bg-white rounded-lg py-3 px-8 space-y-4">
+      <div className="bg-white rounded-lg py-5 px-8 space-y-5">
         {/* Title */}
         <p className="text-lg md:text-xl">
           <span className="font-semibold">{title}</span> Statistics
@@ -111,7 +111,7 @@ export default function Statistics({
           </div>
         </div>
         <div className="">
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={data} width={150} height={50}>
               <defs>
                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -119,7 +119,7 @@ export default function Statistics({
                   <stop offset="95%" stopColor="#FF764C" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis dataKey="name" />
+              <XAxis dataKey="name" axisLine={false} />
               <Tooltip />
               <Area
                 type="monotone"

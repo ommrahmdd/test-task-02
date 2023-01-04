@@ -3,6 +3,10 @@ import energyIcon from "./../../assets/imgs/dashboard/energy.png";
 import rangeIcon from "./../../assets/imgs/dashboard/range.png";
 import fluidIcon from "./../../assets/imgs/dashboard/fluid.png";
 import tireIcon from "./../../assets/imgs/dashboard/tire.png";
+import car01 from "./../../assets/imgs/dashboard/car01.png";
+import car02 from "./../../assets/imgs/dashboard/car02.png";
+import car03 from "./../../assets/imgs/dashboard/car03.png";
+
 export default function useDashboard() {
   const statstics = [
     {
@@ -216,7 +220,30 @@ export default function useDashboard() {
     else if (type === "day") setCarData(dayData);
     else setCarData(monthData);
   };
-
+  // Recommended component
+  const recommended = [
+    {
+      perc: 63,
+      title: "Mini Coper",
+      share: 132,
+      priceHour: 32,
+      img: car01,
+    },
+    {
+      perc: 74,
+      title: "Porsche 911 Carrera",
+      share: 130,
+      priceHour: 28,
+      img: car02,
+    },
+    {
+      perc: 74,
+      title: "Porsche 911 Carrera",
+      share: 130,
+      priceHour: 32,
+      img: car03,
+    },
+  ];
   return {
     statstics,
     activeMilesType,
@@ -225,5 +252,6 @@ export default function useDashboard() {
     handleActiveMilesType,
     handleActiveCarType,
     carData,
+    recommended,
   };
 }
