@@ -5,6 +5,13 @@ module.exports = {
     extend: {
       colors: {
         greyColor: "#F5F5F5",
+        orangedColor: " #EF9011",
+        orangedDarkColor: " #FF764C",
+        blackColor: "#242731",
+        purpleColor: "#A162F7",
+        pinkColor: "#FF7E86",
+        yellowColor: "#F6CC0D",
+        blueColor: "#2884FF",
       },
     },
   },

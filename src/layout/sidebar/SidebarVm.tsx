@@ -66,7 +66,7 @@ export function useSidebar() {
     ),
     getItem(
       "Messages",
-      "7",
+      "8",
       <img src={img08} alt="icon" className="w-4 h-4 object-contain" />
     ),
   ];
