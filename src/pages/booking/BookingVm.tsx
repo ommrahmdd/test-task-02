@@ -11,6 +11,7 @@ import car09 from "./../../assets/imgs/booking/car09.png";
 
 export default function useBooking() {
   const [grid, setGrid] = useState<boolean>(true);
+  let [likesProducts, setLikesProduct] = useState<number[]>([]);
   const data = [
     {
       name: "Porshe 718 Cayman S",
@@ -91,10 +92,22 @@ export default function useBooking() {
   const handleSingleiCol = () => {
     setGrid(false);
   };
+  const handleProductLike = (index: number) => {
+    if (likesProducts.indexOf(index) === -1) {
+      setLikesProduct((prevState) => [...prevState, index]);
+    } else {
+      likesProducts = likesProducts.filter((item) => {
+        return item !== index;
+      });
+      setLikesProduct((prevState) => likesProducts);
+    }
+  };
   return {
     data,
     grid,
     handleMultiCol,
     handleSingleiCol,
+    likesProducts,
+    handleProductLike,
   };
 }

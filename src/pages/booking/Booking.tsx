@@ -1,7 +1,8 @@
 import { Select } from "antd";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/opacity.css";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import useBooking from "./BookingVm";
+
 // Imgs
 import selectIcon from "./../../assets/imgs/booking/arrow-down.png";
 import gridIcon from "./../../assets/imgs/booking/grid.png";
@@ -10,9 +11,17 @@ import manualIcon from "./../../assets/imgs/booking/manual.png";
 import usersIcon from "./../../assets/imgs/booking/users.png";
 // Css
 import "./booking.css";
+import { FilledHeart, Heart } from "../../component/icons/Hearts";
 
 export default function Booking() {
-  const { data, grid, handleMultiCol, handleSingleiCol } = useBooking();
+  const {
+    data,
+    grid,
+    handleMultiCol,
+    handleSingleiCol,
+    handleProductLike,
+    likesProducts,
+  } = useBooking();
   return (
     <div className="space-y-5">
       {/*STYLE: title */}
@@ -153,7 +162,13 @@ export default function Booking() {
                   {item.type}
                 </p>
               </div>
-              <p>L</p>
+              <button onClick={() => handleProductLike(index)}>
+                {likesProducts.indexOf(index) === -1 ? (
+                  <Heart />
+                ) : (
+                  <FilledHeart />
+                )}
+              </button>
             </div>
             {/* img */}
             <div
@@ -167,7 +182,7 @@ export default function Booking() {
                 className={`w-full h-32 object-contain ${
                   !grid && "md:h-44  lg:h-56"
                 }`}
-                effect="opacity"
+                effect="blur"
               />
             </div>
             {/* icons */}

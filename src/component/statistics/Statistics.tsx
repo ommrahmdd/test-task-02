@@ -4,9 +4,7 @@ import {
   Bar,
   BarChart,
   XAxis,
-  YAxis,
   Tooltip,
-  CartesianGrid,
   AreaChart,
   Area,
 } from "recharts";
