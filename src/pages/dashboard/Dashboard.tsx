@@ -1,12 +1,15 @@
 import React from "react";
 import { Progress } from "antd";
 import useDashboard from "./DashboardVm";
-import Statistics from "../../component/statistics/Statistics";
+import {
+  AreaStatistics,
+  BarStatistics,
+} from "../../component/statistics/Statistics";
 import recommendedImg from "./../../assets/imgs/dashboard/recommend.png";
 import settingImg from "./../../assets/imgs/dashboard/setting.png";
 import energyImg from "./../../assets/imgs/dashboard/small-energy.png";
 import shareImg from "./../../assets/imgs/dashboard/share.png";
-
+import "./dashboard.css";
 export default function Dashboard() {
   const {
     statstics,
@@ -21,18 +24,19 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8">
-      {/* Top */}
+      {/* Progress */}
       <section className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {statstics.map((_stats, _index) => (
+        {statstics.map((_stats, index) => (
           <div
-            className={`flex flex-col items-center gap-y-7 bg-white rounded-xl py-6 transition-all duration-300 ease-in-out hover:opacity-50`}
+            className={`stats__card flex flex-col items-center gap-y-7 bg-white rounded-xl py-6 transition-all duration-300 ease-in-out hover:opacity-50`}
+            key={index}
           >
             <div className="flex flex-col items-center gap-y-3">
-              <img
-                src={_stats.img}
-                alt="stats Icon"
-                className="w-10 h-10 object-contain"
-              />
+              <div
+                className={`stats__icon stats__icon-${index} w-9 h-9 p-3 rounded-full  flex items-center justify-center`}
+              >
+                {_stats.icon}
+              </div>
               <p className="font-medium text-lg text-blackColor  md:text-2xl">
                 {_stats.title}
               </p>
@@ -52,26 +56,24 @@ export default function Dashboard() {
           </div>
         ))}
       </section>
-      {/* Center */}
+      {/* Statistics */}
       <section className="grid gap-8 grid-cols-1 md:grid-cols-2 ">
-        {/* --- left */}
-        <Statistics
+        {/* --- Bar */}
+        <BarStatistics
           activeType={activeMilesType}
-          type="miles"
           data={milesData}
           handleActiveMilesType={handleActiveMilesType}
           title="Miles"
         />
-        {/* --- Right */}
-        <Statistics
+        {/* --- Area */}
+        <AreaStatistics
           activeType={activeCarType}
-          type="car"
           data={carData}
           handleActiveMilesType={handleActiveCarType}
           title="Car"
         />
       </section>
-      {/* Bottom */}
+      {/* Recommended */}
       <section className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {recommended.map((recommend, index) => (
           <div

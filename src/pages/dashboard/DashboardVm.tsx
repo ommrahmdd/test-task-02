@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import energyIcon from "./../../assets/imgs/dashboard/energy.png";
-import rangeIcon from "./../../assets/imgs/dashboard/range.png";
-import fluidIcon from "./../../assets/imgs/dashboard/fluid.png";
-import tireIcon from "./../../assets/imgs/dashboard/tire.png";
+// import energyIcon from "./../../assets/imgs/dashboard/energy.png";
+// import rangeIcon from "./../../assets/imgs/dashboard/range.png";
+// import fluidIcon from "./../../assets/imgs/dashboard/fluid.png";
+// import tireIcon from "./../../assets/imgs/dashboard/tire.png";
 import car01 from "./../../assets/imgs/dashboard/car01.png";
 import car02 from "./../../assets/imgs/dashboard/car02.png";
 import car03 from "./../../assets/imgs/dashboard/car03.png";
+import Energy from "../../component/icons/Energy";
+import Range from "../../component/icons/Range";
+import Fluid from "../../component/icons/Fluid";
+import Tire from "../../component/icons/Tire";
 
 export default function useDashboard() {
   const statstics = [
@@ -13,33 +17,33 @@ export default function useDashboard() {
       title: "Energy",
       perc: 45,
       max: 100,
-      img: energyIcon,
       color: "#A162F7",
       colorTxt: "purpleColor",
+      icon: <Energy />,
     },
     {
       title: "Range",
       perc: 157,
       max: 300,
-      img: rangeIcon,
       color: "#FF7E86",
       colorTxt: "pinkColor",
+      icon: <Range />,
     },
     {
       title: "Break fluid",
       perc: 9,
       max: 100,
-      img: fluidIcon,
-      color: "#A162F7",
+      color: "#70CF97",
       colorTxt: "purpleColor",
+      icon: <Fluid />,
     },
     {
       title: "Tire Wire",
       perc: 25,
       max: 100,
-      img: tireIcon,
       color: "#F6CC0D",
       colorTxt: "yellowColor",
+      icon: <Tire />,
     },
   ];
   const [activeMilesType, setActiveMilesType] = useState<string>("day");

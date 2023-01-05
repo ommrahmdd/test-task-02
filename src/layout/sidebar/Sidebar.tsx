@@ -40,6 +40,7 @@ export default function Sidebar() {
             inlineCollapsed={collapse}
             className="w-full"
             mode="inline"
+            defaultSelectedKeys={["/"]}
             style={{
               borderRight: "none",
             }}

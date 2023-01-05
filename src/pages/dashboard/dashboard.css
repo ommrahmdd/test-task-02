@@ -1,0 +1,55 @@
+.stats__card:hover p {
+  color: white;
+}
+
+.stats__card:nth-of-type(1):hover {
+  background-color: #a162f7;
+}
+.stats__card:nth-of-type(2):hover {
+  background-color: #ff7e86;
+}
+.stats__card:nth-of-type(3):hover {
+  background-color: #70cf97;
+}
+.stats__card:nth-of-type(4):hover {
+  background-color: #f6cc0d;
+}
+.stats__card:hover .ant-progress-circle-path {
+  stroke: white !important;
+}
+.stats__card:hover .ant-progress-circle-trail {
+  stroke: rgba(255, 255, 255, 0.241) !important;
+}
+
+/*---------------- Icons */
+/* bg */
+.stats__icon-0 {
+  background-color: #a062f71e;
+}
+.stats__icon-1 {
+  background-color: #ff7e861e;
+}
+.stats__icon-2 {
+  background-color: #70cf971e;
+}
+.stats__icon-3 {
+  background-color: #f6cc0d1e;
+}
+/* path */
+.stats__icon-0 svg path {
+  fill: #a062f7;
+}
+.stats__icon-1 svg path {
+  fill: #ff7e86;
+}
+.stats__icon-2 svg path {
+  fill: #70cf97;
+}
+.stats__icon-3 svg path {
+  fill: #f6cc0d;
+}
+
+/* hover */
+.stats__card:hover .stats__icon svg path {
+  fill: white;
+}
