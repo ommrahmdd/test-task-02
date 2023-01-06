@@ -12,7 +12,7 @@ import img09 from "./../../assets/imgs/sidebar/settings.png";
 import img10 from "./../../assets/imgs/sidebar/logout.png";
 
 export function useSidebar() {
-  const [collapse, setCollapse] = useState<boolean>(false);
+  const [collapse, setCollapse] = useState<boolean>(true);
   type MenuItem = Required<MenuProps>["items"][number];
   function getItem(
     label: React.ReactNode,

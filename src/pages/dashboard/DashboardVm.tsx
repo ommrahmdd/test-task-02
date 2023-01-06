@@ -47,7 +47,7 @@ export default function useDashboard() {
     },
   ];
   const [activeMilesType, setActiveMilesType] = useState<string>("day");
-  const [activeCarType, setActiveCarType] = useState<string>("day");
+  const [activeCarType, setActiveCarType] = useState<string>("month");
   let dayData = [
     {
       name: "1PM",
@@ -211,7 +211,7 @@ export default function useDashboard() {
     },
   ];
   const [milesData, setMilesData] = useState(dayData);
-  const [carData, setCarData] = useState(dayData);
+  const [carData, setCarData] = useState(monthData);
   const handleActiveMilesType = (type: string) => {
     setActiveMilesType(type);
     if (type === "week") setMilesData(weekData);
