@@ -50,164 +50,172 @@ export default function useDashboard() {
   const [activeCarType, setActiveCarType] = useState<string>("month");
   let dayData = [
     {
-      name: "1PM",
-      uv: 4000,
+      name: "1 PM",
+
       pv: 800,
-      amt: 2400,
     },
     {
-      name: "2PM",
-      uv: 3000,
+      name: "2 PM",
+
       pv: 900,
-      amt: 2210,
     },
     {
-      name: "3PM",
-      uv: 2000,
+      name: "3 PM",
+
       pv: 1000,
-      amt: 2290,
     },
     {
-      name: "4PM",
-      uv: 2780,
+      name: "4 PM",
+
       pv: 1200,
-      amt: 2000,
     },
     {
-      name: "5PM",
-      uv: 1890,
+      name: "5 PM",
+
       pv: 1950,
-      amt: 2181,
     },
     {
-      name: "6PM",
-      uv: 2390,
+      name: "6 PM",
+
       pv: 2100,
-      amt: 2500,
     },
     {
-      name: "7PM",
-      uv: 3490,
+      name: "7 PM",
+
       pv: 6000,
-      amt: 2100,
     },
   ];
   let weekData = [
     {
       name: "Sat",
-      uv: 4000,
+
       pv: 3500,
-      amt: 2400,
     },
     {
       name: "Sun",
-      uv: 3000,
+
       pv: 1900,
-      amt: 2210,
     },
     {
       name: "Mon",
-      uv: 2000,
+
       pv: 6000,
-      amt: 2290,
     },
     {
       name: "Tus",
-      uv: 2780,
+
       pv: 2000,
-      amt: 2000,
     },
     {
       name: "Wen",
-      uv: 1890,
+
       pv: 3500,
-      amt: 2181,
     },
     {
       name: "Thu",
-      uv: 2390,
+
       pv: 7800,
-      amt: 2500,
     },
     {
       name: "Fri",
-      uv: 3490,
+
       pv: 1500,
-      amt: 2100,
     },
   ];
   let monthData = [
     {
       name: "Fab",
-      uv: 4000,
+
       pv: 6000,
-      amt: 2400,
     },
     {
       name: "Jan",
-      uv: 3000,
+
       pv: 2500,
-      amt: 2210,
     },
     {
       name: "Mar",
-      uv: 2000,
+
       pv: 4000,
-      amt: 2290,
     },
     {
       name: "Apr",
-      uv: 2780,
+
       pv: 10000,
-      amt: 2000,
     },
     {
       name: "May",
-      uv: 1890,
+
       pv: 1000,
-      amt: 2181,
     },
     {
       name: "Jun",
-      uv: 2390,
+
       pv: 3600,
-      amt: 2500,
     },
     {
       name: "Jul",
-      uv: 3490,
+
       pv: 4100,
-      amt: 2100,
     },
     {
       name: "Aug",
-      uv: 3490,
+
       pv: 2200,
-      amt: 2100,
     },
     {
       name: "Sep",
-      uv: 3490,
+
       pv: 500,
-      amt: 2100,
     },
     {
       name: "Oct",
-      uv: 3490,
+
       pv: 3600,
-      amt: 2100,
     },
     {
       name: "Nov",
-      uv: 3490,
+
       pv: 9000,
-      amt: 2100,
     },
     {
       name: "Dec",
-      uv: 3490,
+
       pv: 1500,
-      amt: 2100,
+    },
+  ];
+  let dayData_carStats = [
+    {
+      name: "7 am",
+      pv: 100,
+    },
+    {
+      name: "9 am",
+      pv: 300,
+    },
+    {
+      name: "11 am",
+      pv: 500,
+    },
+    {
+      name: "1 pm",
+      pv: 400,
+    },
+    {
+      name: "3 pm",
+      pv: 300,
+    },
+    {
+      name: "5 pm",
+      pv: 325,
+    },
+    {
+      name: "7 pm",
+      pv: 430,
+    },
+    {
+      name: "9 pm",
+      pv: 500,
     },
   ];
   const [milesData, setMilesData] = useState(dayData);
@@ -221,7 +229,7 @@ export default function useDashboard() {
   const handleActiveCarType = (type: string) => {
     setActiveCarType(type);
     if (type === "week") setCarData(weekData);
-    else if (type === "day") setCarData(dayData);
+    else if (type === "day") setCarData(dayData_carStats);
     else setCarData(monthData);
   };
   // Recommended component

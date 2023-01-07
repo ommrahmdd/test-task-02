@@ -12,6 +12,7 @@ import usersIcon from "./../../assets/imgs/booking/users.png";
 // Css
 import "./booking.css";
 import { FilledHeart, Heart } from "../../component/icons/Hearts";
+import { useLayoutEffect } from "react";
 
 export default function Booking() {
   const {
@@ -22,6 +23,9 @@ export default function Booking() {
     handleProductLike,
     likesProducts,
   } = useBooking();
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="space-y-5">
       {/*STYLE: title */}
@@ -171,11 +175,7 @@ export default function Booking() {
               </button>
             </div>
             {/* img */}
-            <div
-              className={`w-full ${
-                !grid && "md:flex items-center justify-center"
-              }`}
-            >
+            <div className={`w-full flex items-center justify-center`}>
               <LazyLoadImage
                 src={item.img}
                 alt="car"

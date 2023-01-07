@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { Progress } from "antd";
 import useDashboard from "./DashboardVm";
 import {
@@ -21,7 +21,9 @@ export default function Dashboard() {
     carData,
     recommended,
   } = useDashboard();
-
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="space-y-8">
       {/* Progress */}

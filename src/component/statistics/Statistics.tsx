@@ -7,22 +7,10 @@ import {
   Tooltip,
   AreaChart,
   Area,
+  Cell,
+  Brush,
 } from "recharts";
-
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import { useStatistics, months } from "./StatisticsVm";
 
 export function BarStatistics({
   activeType,
@@ -35,6 +23,7 @@ export function BarStatistics({
   title: string;
   handleActiveMilesType: (type: string) => void;
 }) {
+  const { activeBarItem, handleActiveBarItem, kFormatter } = useStatistics();
   return (
     <div className="bg-white rounded-lg py-5 px-8 space-y-5">
       {/* Title */}
@@ -63,16 +52,42 @@ export function BarStatistics({
       <div className="">
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data} width={150} height={50}>
-            <XAxis dataKey="name" axisLine={false} />
-            <Tooltip />
-            <Bar dataKey="pv" fill="#2884FF" />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              tickSize={15}
+            />
+            <Tooltip
+              content={({ active, payload, label }) => {
+                if (payload && payload.length) {
+                  return (
+                    <div className="bg-blackColor text-greyColor py-1 px-3 rounded-md shadow-xl lg:pr-8">
+                      <p>{label}</p>
+                      <p className="flex items-center gap-x-1">
+                        <div className="w-2 h-2 bg-blueColor rounded-full"></div>
+                        <span>{kFormatter(payload[0].value as number)}</span>
+                      </p>
+                    </div>
+                  );
+                }
+              }}
+            />
+            <Bar dataKey="pv" onMouseEnter={handleActiveBarItem} barSize={35}>
+              {data.map((entrey: any, index: number) => (
+                <Cell
+                  cursor="pointer"
+                  fill={index === activeBarItem ? "#2884FF" : "#2884FF29"}
+                  key={index}
+                />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
     </div>
   );
 }
-
 export function AreaStatistics({
   activeType,
   data,
@@ -84,6 +99,7 @@ export function AreaStatistics({
   title: string;
   handleActiveMilesType: (type: string) => void;
 }) {
+  const { kFormatter } = useStatistics();
   return (
     <div className="bg-white rounded-lg py-5 px-8 space-y-5">
       {/* Title */}
@@ -124,15 +140,33 @@ export function AreaStatistics({
                 <stop offset="95%" stopColor="#FF764C" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <XAxis dataKey="name" axisLine={false} />
-            <Tooltip />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              tickSize={15}
+            />
+            <Tooltip
+              content={({ active, payload, label }) => {
+                if (payload && payload.length) {
+                  return (
+                    <div className="bg-blackColor text-greyColor py-1 px-3 rounded-md shadow-xl lg:pr-8">
+                      <p>{label}</p>
+                      <p className="flex items-center gap-x-1">
+                        <div className="w-2 h-2 bg-orangedColor rounded-full"></div>
+                        <span>{kFormatter(payload[0].value as number)}</span>
+                      </p>
+                    </div>
+                  );
+                }
+              }}
+            />
             <Area
               type="monotone"
               dataKey="pv"
               fill="url(#colorUv)"
               fillOpacity={0.4}
               stroke="#FF764C"
-              gradientTransform="#fff"
             />
           </AreaChart>
         </ResponsiveContainer>

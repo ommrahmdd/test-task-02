@@ -28,15 +28,12 @@ export default function Sidebar() {
             src={logo}
             alt="logo"
             className="w-5 h-5 object-contain cursor-pointer transition-all duration-200 ease-in-out hover:opacity-60 md:w-7 md:h-7"
+            onClick={handleCollapse}
           />
           {collapse || <p className="font-semibold md:text-xl ">Motiv.</p>}
         </div>
         {/* STYLE: Menus */}
-        <div
-          className="h-full w-full flex flex-col justify-between"
-          onMouseEnter={handleCollapse}
-          onMouseLeave={handleCollapse}
-        >
+        <div className="h-full w-full flex flex-col justify-between">
           {/* STYLE: Top Menu */}
           <Menu
             items={sidebarItems}
